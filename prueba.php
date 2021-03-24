@@ -114,20 +114,115 @@ function ej6()
     <div id="titulo">
         <h1>Ejercicios y apuntes PHP <br> ALEJANDRO RUBIO OLIVA</h1>
     </div>
-    <div id="contenido">
-        <h1>APUNTES:</h1>
-        <?php apuntes(); ?>
-        <h1>EJERCICIOS:</h1>
+    <div id="contenidoTotal">
+        <div id="contenidoApuntes">
+            <h1>APUNTES:</h1>
+            <?php apuntes(); ?>
+            <h1>EJERCICIOS:</h1>
+            <script>
+                for (let index = 0; index < ejercicios.length; index++) {
+                    document.write("<h3>Ejercicio " + (index + 1) + ":" + "</h3>");
+                    document.write(ejercicios[index]);
+                }
+            </script>
+        </div>
+        <div id="contenidoSolucion">
+            <h1>APUNTES:</h1>
+            <h2>FUNCIONES ARRAYS</h2>
+            <h3>PARTE 1: Recorrido de la coleccion con for each:</h3>
+            <p class="codigo">
+                $entrada = array('Miguel', 'Pepe', 'Juan', 'Julio', 'Pablo');<br>
+                foreach ($entrada as $nombres =&gt; $valor) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;echo "Nombre $nombres : $valor &lt;br&gt;";<br>
+                }<br>
+                $entradaDos = array_slice($entrada, 0, 3);<br>
+            </p>
+            <h3>PARTE 2: Extraccion de datos la coleccion:</h3>
+            <p class="codigo">
+                foreach ($entradaDos as $nombres2) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;echo $nombres2 . '&lt;br&gt;';<br>
+                }<br>
+            </p>
+            <h3>PARTE 3: Primer dato de una coleccion:</h3>
+            <p class="codigo">
+                $minumero = array_shift($entradaDos);<br>
+                echo $minumero;<br>
+            </p>
+            <h3>PARTE 4: Ordenar una coleccion de datos:</h3>
+            <p class="codigo">
+                $numeros = array(2, 6, 3, 4, 8, 1, 7, 5);<br>
+                asort($numeros);<br>
+                foreach ($numeros as $nums) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;echo $nums . '&lt;br&gt;';<br>
+                }<br>
+            </p>
+            <h3>PARTE 5: Añadir datos a una coleccion:</h3>
+            <p class="codigo">
+                array_push($numeros, 9);<br>
+                foreach ($numeros as $nums) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;echo $nums . '&lt;br&gt;';<br>
+                }<br>
+                sort($numeros);<br>
+            </p>
+            <h3>PARTE 6: Recorrer colecciones con bucles for:</h3>
+            <p class="codigo">
+                for ($i = 0; $i &lt; count($numeros); $i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;echo $numeros[$i];<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if ($i &lt; count($numeros) - 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "---";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+            </p>
+            <h1>EJERCICIOS:</h1>
+            <h3>Ejercicio 1 </h3>
+            <p class="codigo">
+                $v1 = "Hola"; <br>
+                $v2 = "amigos"; <br>
+                echo $v1 . " " . $v2; <br>
+            </p>
+            <h3>Ejercicio 2 </h3>
+            <p class="codigo">
+                $v1 = 55; <br>
+                $v2 = 53; <br>
+                if ($v1 > $v2) { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print "55>53"; <br>
+                } else { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print "55<53"; <br>
+                    }
+            </p>
+            <h3>Ejercicio 3 </h3>
+            <p class="codigo">
+                for ($i = 1; $i <= 10; $i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; echo $i . "&lt;br&gt;"; <br>
+                    }
+            </p>
+            <h3>Ejercicio 4 </h3>
+            <p class="codigo">
+                for ($i = 1; $i <= 20; $i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; if ($i % 2 != 0) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print $i . "&lt;br&gt;"; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    } <br>
+            </p>
+            <h3>Ejercicio 5 </h3>
+            <p class="codigo">
+                $tabla = 4;<br>
+                for ($i = 1; $i <= 10; $i++) { <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; print ($tabla * $i) . "&lt;br&gt;"; <br>
+                    } <br>
+            </p>
+            <h3>Ejercicio 5 </h3>
+            <p class="codigo">
 
-        <script>
-            for (let index = 0; index < ejercicios.length; index++) {
-                document.write("<h3>Ejercicio " + (index + 1) + ":" + "</h3>");
-                document.write(ejercicios[index]);
-            }
-        </script>
-
+                $v1 = "Hola";<br>
+                $v2 = " amigos";<br>
+                if ($v1 == $v2) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print "Son iguales";<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print "Son diferentes";<br>
+                }<br>
+            </p>
+        </div>
     </div>
-
-</body>
 
 </html>

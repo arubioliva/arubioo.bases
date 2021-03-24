@@ -1,9 +1,8 @@
 html {
-  font-family: mononoki nf;
+  font-family: nunito;
   margin: 0%;
 }
 
-h1,
 h2,
 h3 {
   text-decoration: underline;
@@ -12,17 +11,33 @@ h3 {
 body {
   background-color: rgb(210, 230, 212);
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-#titulo {
-  text-align: center;
+#contenidoTotal {
+  width: 100%;
+  display: flex;
+  margin: auto;
 }
-
-#contenido,
-#titulo {
+#contenidoApuntes,
+#titulo,
+#contenidoSolucion {
   margin: 20px;
   border-radius: 10px;
   padding: 10px;
   background-color: white;
-  width: 40%;
+  width: 180%;
+}
+#contenidoSolucion {
+  background-color: black;
+  color: white;
+}
+.codigo {
+  font-family: mononoki nf;
+}
+#titulo {
+  margin: auto;
+  width: 70%;
+  text-align: center;
 }
