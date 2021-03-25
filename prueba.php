@@ -1,4 +1,8 @@
 <?php
+$web = '0.php';
+if (isset($_GET['cambio']) && ($_GET['cambio'])) {
+    $web = '1.php';
+}
 function apuntes()
 {
     echo '<h2>FUNCIONES ARRAYS</h2>';
@@ -116,6 +120,10 @@ function ej6()
     </div>
     <div id="contenidoTotal">
         <div id="contenidoApuntes">
+            <h2>FORMULARIOS:</h2>
+            <?php
+            include($web);
+            ?>
             <h1>APUNTES:</h1>
             <?php apuntes(); ?>
             <h1>EJERCICIOS:</h1>
@@ -224,4 +232,5 @@ function ej6()
             </p>
         </div>
     </div>
+
 </html>
