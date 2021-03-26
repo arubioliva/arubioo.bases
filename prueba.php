@@ -1,8 +1,36 @@
 <?php
 $web = '0.php';
+$solucion = '&lt;body&gt;<br>
+&emsp;&emsp;&lt;fieldset&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&lt;legend&gt;FORMULARIO:&lt;/legend&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&lt;form action="prueba.php?cambio=true" method="post"&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;label for="nombre"&gt;NOMBRE:&lt;/label&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input required type="text" name="nombre" id="nombre" size="20" maxlength="20"&gt;&lt;br&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;label for="apellidos"&gt;APELLIDOS:&lt;/label&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input required type="text" name="apellidos" id="nombre" size="20" maxlength="42"&gt;&lt;br&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;label for="dni"&gt;DNI:&lt;/label&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;input required type="text" name="dni" id="nombre" size="20" maxlength="9"&gt;&lt;br&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;u&gt;&lt;label for="sexo"&gt;SEXO:&lt;/label&gt;&lt;/u&gt;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&lt;input required type="radio" name="sexo" id="sexo" value="Mujer"&gt;--Mujer.&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&lt;input required type="radio" name="sexo" id="sexo" value="Hombre"&gt;--Hombre.&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&lt;input required type="radio" name="sexo" id="sexo" value="Otro"&gt;--Otro.&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;br&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;button type="submit"&gt;Enviar formulario&lt;/button&gt;<br>
+&emsp;&emsp;&emsp;&emsp;&lt;/form&gt;<br>
+&emsp;&emsp;&lt;/fieldset&gt;<br>
+&lt;/body&gt;<br>';
+
 if (isset($_GET['cambio']) && ($_GET['cambio'])) {
     $web = '1.php';
+    $solucion = '&lt;body&gt;<br>
+    &emsp;&emsp;&lt;h3&gt;DATOS FORMULARIO:&lt;/h3&gt;<br>
+    &emsp;&emsp;&lt;p&gt;&lt;?php echo $_POST["nombre"]; ?&gt;&lt;/p&gt;<br>
+    &emsp;&emsp;&lt;p&gt;&lt;?php echo $_POST["apellidos"]; ?&gt;&lt;/p&gt;<br>
+    &emsp;&emsp;&lt;p&gt;&lt;?php echo $_POST["dni"]; ?&gt;&lt;/p&gt;<br>
+    &emsp;&emsp;&lt;p&gt;&lt;?php echo $_POST["sexo"]; ?&gt;&lt;/p&gt;<br>
+    &lt;/body&gt;<br>';
 }
+
 function apuntes()
 {
     echo '<h2>FUNCIONES ARRAYS</h2>';
@@ -120,18 +148,18 @@ function ej6()
     </div>
     <div id="contenidoTotal">
         <div id="contenidoApuntes">
+            <h1>APUNTES:</h1>
+            <?php apuntes(); ?>
             <h2>FORMULARIOS:</h2>
             <?php
             include($web);
             ?>
-            <h1>APUNTES:</h1>
-            <?php apuntes(); ?>
             <h1>EJERCICIOS:</h1>
             <script>
                 for (let index = 0; index < ejercicios.length; index++) {
                     document.write("<h3>Ejercicio " + (index + 1) + ":" + "</h3>");
                     document.write(ejercicios[index]);
-                }
+                };
             </script>
         </div>
         <div id="contenidoSolucion">
@@ -141,14 +169,14 @@ function ej6()
             <p class="codigo">
                 $entrada = array('Miguel', 'Pepe', 'Juan', 'Julio', 'Pablo');<br>
                 foreach ($entrada as $nombres =&gt; $valor) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;echo "Nombre $nombres : $valor &lt;br&gt;";<br>
+                &emsp;&emsp;echo "Nombre $nombres : $valor &lt;br&gt;";<br>
                 }<br>
                 $entradaDos = array_slice($entrada, 0, 3);<br>
             </p>
             <h3>PARTE 2: Extraccion de datos la coleccion:</h3>
             <p class="codigo">
                 foreach ($entradaDos as $nombres2) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;echo $nombres2 . '&lt;br&gt;';<br>
+                &emsp;&emsp;echo $nombres2 . '&lt;br&gt;';<br>
                 }<br>
             </p>
             <h3>PARTE 3: Primer dato de una coleccion:</h3>
@@ -161,26 +189,28 @@ function ej6()
                 $numeros = array(2, 6, 3, 4, 8, 1, 7, 5);<br>
                 asort($numeros);<br>
                 foreach ($numeros as $nums) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;echo $nums . '&lt;br&gt;';<br>
+                &emsp;&emsp;echo $nums . '&lt;br&gt;';<br>
                 }<br>
             </p>
             <h3>PARTE 5: Añadir datos a una coleccion:</h3>
             <p class="codigo">
                 array_push($numeros, 9);<br>
                 foreach ($numeros as $nums) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;echo $nums . '&lt;br&gt;';<br>
+                &emsp;&emsp;echo $nums . '&lt;br&gt;';<br>
                 }<br>
                 sort($numeros);<br>
             </p>
             <h3>PARTE 6: Recorrer colecciones con bucles for:</h3>
             <p class="codigo">
                 for ($i = 0; $i &lt; count($numeros); $i++) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;echo $numeros[$i];<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;if ($i &lt; count($numeros) - 1) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "---";<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &emsp;&emsp;echo $numeros[$i];<br>
+                &emsp;&emsp;if ($i &lt; count($numeros) - 1) {<br>
+                &emsp;&emsp;&emsp;&emsp;echo "---";<br>
+                &emsp;&emsp;}<br>
                 }<br>
             </p>
+            <h2>FORMULARIOS:</h2>
+            <?php echo $solucion; ?>
             <h1>EJERCICIOS:</h1>
             <h3>Ejercicio 1 </h3>
             <p class="codigo">
@@ -193,30 +223,30 @@ function ej6()
                 $v1 = 55; <br>
                 $v2 = 53; <br>
                 if ($v1 > $v2) { <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;print "55>53"; <br>
+                &emsp;&emsp;print "55>53"; <br>
                 } else { <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;print "55<53"; <br>
+                &emsp;&emsp;print "55<53"; <br>
                     }
             </p>
             <h3>Ejercicio 3 </h3>
             <p class="codigo">
                 for ($i = 1; $i <= 10; $i++) { <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; echo $i . "&lt;br&gt;"; <br>
+                    &emsp;&emsp; echo $i . "&lt;br&gt;"; <br>
                     }
             </p>
             <h3>Ejercicio 4 </h3>
             <p class="codigo">
                 for ($i = 1; $i <= 20; $i++) { <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; if ($i % 2 != 0) { <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print $i . "&lt;br&gt;"; <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; } <br>
+                    &emsp;&emsp; if ($i % 2 != 0) { <br>
+                    &emsp;&emsp;&emsp;&emsp; print $i . "&lt;br&gt;"; <br>
+                    &emsp;&emsp; } <br>
                     } <br>
             </p>
             <h3>Ejercicio 5 </h3>
             <p class="codigo">
                 $tabla = 4;<br>
                 for ($i = 1; $i <= 10; $i++) { <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; print ($tabla * $i) . "&lt;br&gt;"; <br>
+                    &emsp;&emsp; print ($tabla * $i) . "&lt;br&gt;"; <br>
                     } <br>
             </p>
             <h3>Ejercicio 5 </h3>
@@ -225,9 +255,9 @@ function ej6()
                 $v1 = "Hola";<br>
                 $v2 = " amigos";<br>
                 if ($v1 == $v2) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;print "Son iguales";<br>
+                &emsp;&emsp;print "Son iguales";<br>
                 } else {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;print "Son diferentes";<br>
+                &emsp;&emsp;print "Son diferentes";<br>
                 }<br>
             </p>
         </div>
